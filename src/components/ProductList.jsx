@@ -6,7 +6,7 @@ const ProductList = ({ products, addToCart }) => {
       {products.map((product) => (
         <div key={product.id} className="border p-4 rounded shadow">
           <h2 className="text-lg font-bold">{product.name}</h2>
-          <p className="mb-2">{product.price}</p>
+          <p className="mb-2">${product.price}</p>
           <button
             onClick={() => addToCart(product)}
             className="bg-blue-500 text-white p-2 rounded"

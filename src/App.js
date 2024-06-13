@@ -76,6 +76,7 @@ const App = () => {
         cartItems={cartItems}
         addToCart={addToCart}
         removeItemFromCart={removeItemFromCart}
+        clearCart={() => setCartItems([])}
       />
     </div>
   );

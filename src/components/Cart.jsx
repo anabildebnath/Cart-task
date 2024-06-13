@@ -1,11 +1,15 @@
 import React from 'react';
 import { Button } from './ui/button';
 
-const Cart = ({ cartItems, addToCart, removeItemFromCart }) => {
+const Cart = ({ cartItems, addToCart, removeItemFromCart, clearCart }) => {
   const formatPrice = (price) => `$${price.toFixed(2)}`;
 
   const calculateTotal = () => {
     return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
+
+  const handleClearCart = () => {
+    clearCart(); // Call the clearCart function passed from props
   };
 
   return (
@@ -31,6 +35,9 @@ const Cart = ({ cartItems, addToCart, removeItemFromCart }) => {
           </ul>
           <div className="mt-4 text-left font-bold">
             <p>Total: {formatPrice(calculateTotal())}</p>
+            <Button onClick={handleClearCart} className="bg-red-500 text-white px-4 py-2 mt-2">
+              Clear Cart
+            </Button>
           </div>
         </>
       )}
